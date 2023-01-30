@@ -1,0 +1,25 @@
+/***
+ * Basic settings
+ */
+$color-primary: #3465a4;
+$color-background: #ffffff;
+$color-foreground: #151515;
+
+$color-primary-dark: darken($color-primary, 20%);
+$color-primary-darker: darken($color-primary, 30%);
+
+$color-secondary: $color-primary-dark;
+$color-tertiary: lighten($color-background, 14%);
+
+$color-background-light: lighten($color-background, 4%);
+$color-background-lighter: lighten($color-background, 10%);
+
+$color-red: #8e315d;
+
+// Import source file, so that our color variables are used
+@import "milligram/src/milligram"; // https://milligram.io/#typography
+
+@import "./utilities";
+@import "./layout";
+@import "./blog";
+@import "./talks";

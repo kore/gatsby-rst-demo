@@ -1,0 +1,65 @@
+=======================================
+Refactoring Should not Only be a Ticket
+=======================================
+
+:Created: 2017-01-24
+:Canonical: https://qafoo.com/blog/095_refactoring_should_not_be_a_ticket.html
+:Author: Tobias Schlitt, Kore Nordmann
+:Note: This blog post was first published in the Qafoo blog and written or co-authored by me.
+:Description:
+    In this blog post I would like to elaborate a bit further on why
+    refactoring should never only be a dedicated task on your board. It should
+    be an essential part of every task you work on…
+
+:Keywords:
+    refactoring, quality, sprint, tickets
+
+A while ago I tweeted
+
+    #Refactoring should never only be a dedicated task on your board. It should
+    be an essential part of every other task you work on.
+
+    -- https://twitter.com/tobySen/status/783610875047505920
+
+In this blog post I would like to elaborate a bit further on what I mean and
+why I think this is important.
+
+When we do quality workshops and trainings on-site at our customers we see
+various approaches to refactoring which typically fail, for example:
+
+#. A general ticket "Refactoring" is added to every sprint
+#. Dedicated refactoring sprints are requested
+
+The problem here is that refactoring is not seen as an essential part of the
+daily work, but instead as a dedicated task that requires additional time on
+top of daily work.
+
+Compare your work as a programmer to the job of any type of craftsman: does that
+craftsman charge additional time for cleaning up the construction site? Of
+course not. Either you clean up your working place after finishing a task or
+you need to do it before starting the next. Both ways are possible, but just
+skipping to clean your workplace until you get dedicated time is not an option.
+
+This is exactly the way how you should approach refactoring: When starting a
+new task you need to analyze the existing code anyway. If you stumble over some
+dirt, clean it up as you go. When you finished your task reflect what you just
+did. Maybe a method grew too large? Maybe you could avoid duplication? Maybe
+you chose a bad name? Fix it – now!
+
+If your team accepts refactoring as an essential part of every work they
+perform, you will experience how fast your code base will improve at exactly
+the places you work on a lot.
+
+Of course you will still discover bigger challenges while trying to clean up
+the construction site. There will be steps which turn out to be too large to be
+done on the go. These are exactly the parts which should be made dedicated
+tickets. But beware to just name a ticket "Refactoring". Be specific instead
+and explain exactly what needs to be achieved to put the team in a better
+position to clean up on the go.
+
+..
+   Local Variables:
+   mode: rst
+   fill-column: 79
+   End: 
+   vim: et syn=rst tw=79

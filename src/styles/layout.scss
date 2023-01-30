@@ -1,0 +1,20 @@
+html {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+html,
+body {
+  margin: 0;
+  background-color: $color-background;
+  color: $color-foreground;
+  font-family: sans-serif;
+}
+
+a {
+  color: $color-primary;
+}
+
+a:hover, a:visited {
+  color: $color-primary-dark;
+}

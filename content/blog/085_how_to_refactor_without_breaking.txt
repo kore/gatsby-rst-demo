@@ -1,0 +1,149 @@
+=======================================
+How to Refactor Without Breaking Things
+=======================================
+
+:Created: 2016-06-01
+:Canonical: https://qafoo.com/blog/085_how_to_refactor_without_breaking.html
+:Author: Tobias Schlitt, Kore Nordmann
+:Note: This blog post was first published in the Qafoo blog and written or co-authored by me.
+:Description:
+    Refactoring means to change the structure of your code without changing its
+    behavior. Refactoring is an essential part of everyday programming and
+    should become knee-jerk for your whole development team. It is very helpful
+    to cleanup feature spikes, revise earlier decisions and keep a maintainable
+    code base in the long run. In a perfect project world - with extensive
+    automated tests of various types - this is just a matter of getting used
+    to. But there are only very few such projects, so getting into proper
+    refactoring is much harder. This article will show you important tips to
+    master this challenge with your team.
+
+:Keywords:
+    refactoring, testing, baby steps, clean code, best practices, tipps
+
+Refactoring means to change the structure of your code without changing its
+behavior. It is an essential part of everyday programming and should become
+knee-jerk for your whole development team. Refactoring is very helpful to
+cleanup feature spikes, revise earlier decisions and keep a maintainable
+codebase in the long run. In a perfect project world - with extensive automated
+tests of various types - this is just a matter of getting used to. But there
+are only very few such projects. So getting into proper refactoring is much
+harder. This article will show you important tips to master this challenge
+with your team.
+
+From our experience in various (legacy) projects successful refactoring
+depends on the following points:
+
+#. Tests
+#. Baby steps
+
+-----
+Tests
+-----
+
+Tests help you to ensure that the behavior of your application does not break
+while restructuring the code. But in many cases you will want to apply
+techniques of refactoring just to make your code more testable and to come to a
+stage where writing unit tests gets cheap. There the dog seems to chase its own
+tail.
+
+We found out that high-level functional tests can deal as a good basis to get
+started with refactoring. Even very old legacy applications can usually be
+tested through the browser using `Mink with PHPUnit`__ (or Mink with Behat).
+Which of both solutions you choose depends on your project team: If you are
+familiar with PHPUnit and don't plan of involving non-technical people in
+testing later, PHPUnit + Mink is a solid choice for you.
+
+__ /blog/081_phpunit_mink_functional_tests.html
+
+Before you start writing tests you need to setup at least a rudimentary
+automation system that can reset your development installation (most likely the
+database). The goal must not be to get a fully fledged `infrastructure
+automation`__ (which is of course still desirable) but to get a predictable,
+reproducible starting state for your tests. Maybe you just hack up a shell
+script or use PHPUnits ``setupBeforeClass()`` to apply a big bunch of SQL.
+
+__ https://qafoo.com/blog/065_infrastructure_automation.html
+
+Then you start writing tests through the front-end for the parts of your code
+that you want to touch first, e.g. a really bad controller action (which code
+to refactor first will be part of another article).
+
+Make sure to concentrate on the essentials: Keep the current behavior working.
+Don't care too much about good test code. You can throw these tests away after
+you finished your refactoring or just keep a few of them and clean them up
+later. As usual this is a matter of `trade-off`__. What you want to achieve
+here is an automated version of the click-and-play tests you'd do manually in
+the browser to verify things still work.
+
+__ https://qafoo.com/blog/075_developers_life_trade_off.html
+
+Code coverage can be of good help here to see if you have already enough tests
+to be safe. We have a blog post on `using code coverage with Behat`__ for
+exactly this purpose. The same technique can be applied to running PHPUnit with
+Mink.  But beware: the goal is not ``$someHighPercent`` code coverage! The goal
+is to give you a good feeling for working with the underlying code. Once you
+have reached that state, stop writing tests and focus on the actual refactoring
+again.
+
+__ /blog/040_code_coverage_with_behat.html
+
+----------
+Baby Steps
+----------
+
+When you start with restructuring your code, do yourself a favor and don't be
+too ambitious. The smaller your steps are, the easier it gets. Ideally, you
+will only apply a single refactoring step (e.g. *extract method* or even
+*rename variable*) at once, then run your tests and commit.
+
+We know that this is hard to get through in the first place, especially when
+you did not do much refactoring before. But reminding yourself over and over
+again to go very small steps into a better direction is really helpful for
+multiple reasons:
+
+1. It reduces the risk of breaking something. The human brain can only cope
+   with a limited amount of complexity. The larger the change is, the more
+   things you need to keep in mind. This raises the chance of messing things up
+   and waist time.
+
+2. If you messed up the current step (for example by changing behavior or
+   realizing that your change did not lead to a good result) large changes make
+   it harder for you to just reset and restart. You will think about the time
+   you already invested and will probably go on trying to fix the state.
+   However, this typically makes it worse. Reset to HEAD and restart the
+   refactoring step should be the way to go instead.
+
+3. While you might have a big picture in mind where your refactoring should
+   lead, this might not be the best goal. Maybe there are better solutions
+   you did not think about in the first place. Doing baby steps will keep the
+   door open for correcting your path at any time.
+
+4. Chances that you will get through a large refactoring without being
+   disturbed are low. There is always an emergency fix to be applied, a very
+   important meeting to be joined, good coffee to be drunken or just Facebook
+   that will require you to stop. Getting back into your working stack later
+   will be hard and committing a non-working state should be a no-go. With baby
+   steps, you can just cancel the current step or finish it within seconds and
+   leave safely.
+
+Long story short: Do yourself the favor and get used to baby steps. This will
+sometimes even result in more ugly intermediate steps. Get over it, things will
+eventually be better!
+
+As a side note: People often ask us, if committing each and every baby step
+won't lead to polluting your version history. If you feel that way, rather go
+for squashing your commits later than doing larger steps with each commit.
+
+What are your tips for successful refactoring? Leave us a comment!
+
+The current issue of the `German PHP Magazin`__ also has a slightly more
+extensive article on this topic by us.
+
+__ https://entwickler.de/php-magazin/php-magazin-4-16-244272.html
+
+..
+   Local Variables:
+   mode: rst
+   fill-column: 79
+   End: 
+   vim: et syn=rst tw=79

@@ -1,0 +1,230 @@
+.pager {
+  margin: 1rem auto;
+  list-style-type: none;
+  text-align: center;
+
+  .pager__page,
+  .pager__arrow {
+    display: inline-block;
+
+    a {
+      display: block;
+      text-align: center;
+      width: 4.5rem;
+      padding: 1rem;
+      margin: 0.3rem;
+      border-radius: 0.5rem;
+      background-color: $color-primary-darker;
+      color: $color-foreground;
+      text-decoration: none;
+    }
+
+    &:hover,
+    &--active {
+      a {
+        background-color: $color-primary;
+        color: $color-foreground;
+      }
+    }
+  }
+
+  .pager__arrow {
+    a {
+      font-weight: 700;
+      background-color: $color-background;
+      color: $color-primary;
+    }
+  }
+}
+
+.blog {
+  a {
+    text-decoration: none;
+  }
+
+  .blog__item {
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: $color-background-light;
+    list-style-type: none;
+
+    h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      height: 6rem;
+      margin-top: 2rem;
+    }
+  }
+
+  .blog__item a:hover h3 {
+    text-decoration: underline;
+    color: $color-primary;
+  }
+}
+
+.blog-post {
+  max-width: 80rem;
+  margin: 0rem auto 2rem auto;
+
+  h2 {
+    display: none;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  &__title {
+    margin-bottom: 0.5rem;
+  }
+
+  &__created {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__authors {
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+
+    &:before {
+      content: "Authors: ";
+    }
+
+    li {
+      display: inline;
+
+      &:after {
+        content: ", ";
+      }
+
+      &:last-child:after {
+        content: "";
+      }
+    }
+  }
+
+  &__abstract {
+    color: $color-foreground;
+  }
+
+  &__content {
+    ol, ul {
+      padding-left: 2rem;
+    }
+
+    ol {
+      list-style: decimal;
+    }
+
+    ul {
+      list-style: disc;
+    }
+
+    li > p:first-child {
+      margin-top: 0rem;
+    }
+
+    li > p {
+      display: block;
+      margin-bottom: 0.5rem;
+      margin-left: 1rem;
+    }
+
+    li > p:last-child {
+      margin-bottom: 0;
+    }
+
+    code.block {
+      white-space: pre;
+      display: block;
+      margin: 0 0 2.5rem 0;
+      padding: 1rem;
+    }
+
+    em,
+    strong {
+      font-weight: 700;
+      color: $color-primary;
+    }
+
+    p.cell {
+      margin: 0;
+    }
+
+    // Definition list
+    dl {
+      display: flex;
+      flex-flow: row wrap;
+    }
+    dt {
+      flex-basis: 20%;
+      font-weight: bold;
+    }
+    dt::after {
+      content: ":";
+    }
+    dd {
+      flex-basis: 70%;
+      flex-grow: 1;
+    }
+
+    .image {
+      background-color: $color-background-light;
+      border-radius: 1rem;
+
+      img {
+        background-color: #fff;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+      }
+
+      &.left {
+        float: left;
+      }
+
+      &.center {
+        text-align: center;
+      }
+
+      &.right {
+        float: right;
+      }
+
+      .image_title {
+        display: block;
+        font-size: 1.4rem;
+        text-align: center;
+        font-style: italic;
+      }
+
+      margin-bottom: 2.5rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: 700;
+    }
+  }
+
+  .toc li,
+  .toc p,
+  .toc ul {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  .toc {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $color-tertiary;
+    margin-bottom: 2rem;
+  }
+}

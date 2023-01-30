@@ -1,0 +1,5 @@
+node_modules/
+.cache/
+public
+content/blog/*.txt.xml
+content/blog/*.txt.html

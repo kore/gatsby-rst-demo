@@ -1,0 +1,83 @@
+.project__list,
+.talk__list {
+  display: grid;
+  gap: 1rem;
+  list-style-type: none;
+  margin: 0px;
+}
+
+.project,
+.talk {
+  display: block;
+  padding: 0;
+  border-radius: 1rem;
+  background-color: $color-background-light;
+
+  a {
+    text-decoration: none;
+  }
+
+  h2,
+  h3 {
+    font-size: 2.2rem;
+    color: $color-foreground;
+    margin: 2rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
+  &__logo {
+    background-color: #fff;
+    height: 8rem;
+    display: grid;
+    align-items: center;
+  }
+}
+
+.talk {
+  img {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+}
+
+.project__meta,
+.talk__meta {
+  display: block;
+  text-align: center;
+  font-size: 1.4rem;
+  margin: 2rem;
+}
+
+.project__meta {
+  text-align: left;
+}
+
+.project__link,
+.talk__link {
+  display: block;
+  position: relative;
+  text-align: center;
+
+  .gatsby-image-wrapper {
+    display: inline-block;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 40rem) {
+  .project__list,
+  .talk__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 60rem) {
+  .project__list,
+  .talk__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
