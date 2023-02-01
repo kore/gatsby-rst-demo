@@ -5,15 +5,23 @@
       <xsl:apply-templates/>
     </h2>
   </xsl:template>
+  <xsl:template match="transition">
+    <hr />
+  </xsl:template>
   <xsl:template match="section">
-    <xsl:if test="@ids">
-      <a>
-        <xsl:attribute name="name">
+    <section>
+      <xsl:if test="@ids">
+        <xsl:attribute name="id">
           <xsl:value-of select="@ids"/>
         </xsl:attribute>
-      </a>
-    </xsl:if>
-    <xsl:apply-templates/>
+        <a>
+          <xsl:attribute name="name">
+            <xsl:value-of select="@ids"/>
+          </xsl:attribute>
+        </a>
+      </xsl:if>
+      <xsl:apply-templates/>
+    </section>
   </xsl:template>
   <xsl:template match="section/title">
     <xsl:if test="@refid">
